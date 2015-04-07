@@ -1,0 +1,16 @@
+<%= render 'navigation'%>
+
+	<% @gallery.each do |gallery| %>
+    <div class="gallery"><%= link_to image_tag(gallery.picture.url(:thumb)),gallery.picture.url(:original), class: "fancybox"%>
+	<div class="title"><%= gallery.title %>
+    <div class="content"><%= gallery.content %>
+    	
+    	</div>
+    	</div>
+    	<span><%= link_to 'EDIT', edit_gallery_path(gallery.id) %></span>
+    	<span><%= link_to 'REMOVE', gallery_path(gallery.id),method: "DELETE", data: {confirm: 'Delete this data'} %></span>
+    	</div>
+    
+    
+    
+    <%end%>
